@@ -1,2 +1,31 @@
 groups: []
-questions: []
+groups:
+  - name: "NGINX Configuration"
+    description: "NGINX Configuration stuff"
+
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_nginx-configuration_protocol"
+    host:
+      - "$variable-nextcloud.host"
+    ports:
+      - "$variable-service.nodePort"
+
+questions:
+  - variable: service
+    description: "NGINX Service Configuration"
+    label: "NGINX Service Configuration"
+    group: "NGINX Configuration"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: nodePort
+          label: "Node Port to use for NGINX"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 9080
+            required: true
