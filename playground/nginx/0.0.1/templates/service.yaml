@@ -1,3 +1,6 @@
-{{ $svc := .Values.nginx.service }}
+{{ $svc := .Values.service }}
 {{ $ports := list }}
 {{ $ports = mustAppend $ports (dict "name" "http" "port" 80 "nodePort" $svc.nodePort) }}
+
+{{ $params := . }}
+{{ $_ := set $params "nginx.service" (dict "type" "NodePort" "ports" $ports ) }}
