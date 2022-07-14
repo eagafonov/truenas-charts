@@ -13,7 +13,7 @@ portals:
       - "$variable-service.nodePort"
 
 questions:
-  - variable: service
+  - variable: nginx.service
     description: "NGINX Service Configuration"
     label: "NGINX Service Configuration"
     group: "NGINX Configuration"
