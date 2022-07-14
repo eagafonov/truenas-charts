@@ -10,10 +10,10 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-nginx.service.nodePort"
+      - "$variable-service.nodePort"
 
 questions:
-  - variable: nginx.service
+  - variable: service
     description: "NGINX Service Configuration"
     label: "NGINX Service Configuration"
     group: "NGINX Configuration"
