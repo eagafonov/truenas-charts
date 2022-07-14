@@ -6,11 +6,11 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "$kubernetes-resource_configmap_nginx-configuration_protocol"
+      - "http"
     host:
-      - "$variable-nextcloud.host"
+      - "$node_ip"
     ports:
-      - "$variable-service.nodePort"
+      - "$variable-nginx.service.nodePort"
 
 questions:
   - variable: nginx.service
